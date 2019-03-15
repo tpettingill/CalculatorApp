@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Calculator: Full Stack App</title>
+</head>
+<body>
+    <!---Two Input Text Boxes--->
+    Enter Integer 1  <input type="number" id="num1" style="margin-top:50"/>
+    <br><br><br>
+
+    Enter Integer 2  <input type="number" id="num2"/>
+    <br><br>
+
+   <!---- Operator Buttons--->
+    <button onclick="calc('+')">+</button> 
+    <button onclick="calc('-')">-</button> 
+    <button onclick="calc('X')">X</button> 
+    <button onclick="calc('/')">/</button> 
+
+    <button value="Clear" onclick="reset()">Clear</button><br><br> 
+
+    Result <input type="text" id="result" />
+    
+    <script src="lib/http.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
