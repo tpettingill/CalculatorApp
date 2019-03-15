@@ -1,25 +1,22 @@
 let express = require('express');
 
-let app = express();
-
-app.use(express.static('public'));
-
-app
+express()
+    .use(express.static('public'))
     .get('/calculate/:type/:numberOne/:numberTwo', function(req, res){
         let numberOne = req.params.numberOne;
         let numberTwo = req.params.numberTwo;
         let type = req.params.type;
     
+        //make sure numbers are defined
         if(numberOne === undefined || numberTwo === undefined){
-            res.json({
-                error: 'Must specify two numbers to add'
-            });
+            res.json({ error: 'Must specify two numbers to add' });
         } else{
-            numberOne = parseFloat(numberOne);
-            numberTwo = parseFloat(numberTwo);
+            numberOne = parseInt(numberOne);
+            numberTwo = parseInt(numberTwo);
             
             let result = undefined;
          
+            //calculate result using specified operator
             if(type == 'add'){  
                result = numberOne + numberTwo;
             } else if(type == 'subtract'){
@@ -30,11 +27,10 @@ app
                 result = numberOne / numberTwo;
             }
             
-            res.json({
-                result: result
-            });
+            //return result
+            res.json({ result: result });
         }
     })
     .listen(8888, function(){
-        console.log('Listening');
+        console.log('Listening on localhost:8888');
     });
