@@ -2,26 +2,32 @@
 <html>
 <head>
     <title>Web Calculator: Full Stack App</title>
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!---Two Input Text Boxes--->
-    Enter Integer 1  <input type="number" id="num1" style="margin-top:50"/>
-    <br><br><br>
+    <div class="container">
+        <div class="mt-2">
+            <p class="font-weight-bold">Enter Integer 1</p>
+            <input type="number" step="1" id="num1" class="form-control col-lg-4 col-md-3 col-12" autofocus/>
 
-    Enter Integer 2  <input type="number" id="num2"/>
-    <br><br>
+            <p class="mt-4 font-weight-bold">Enter Integer 2</p>
+            <input type="number" step="1" id="num2" class="form-control col-lg-4 col-md-3 col-12"/>
+        </div>
 
-   <!---- Operator Buttons--->
-    <button onclick="calc('add')">+</button> 
-    <button onclick="calc('subtract')">-</button> 
-    <button onclick="calc('multiply')">X</button> 
-    <button onclick="calc('divide')">/</button> 
+        <div class="mt-4">
+            <button class="btn btn-primary btn-sm" onclick="calc('add')">+</button> 
+            <button class="btn btn-primary btn-sm" onclick="calc('subtract')">-</button> 
+            <button class="btn btn-primary btn-sm" onclick="calc('multiply')">X</button> 
+            <button class="btn btn-primary btn-sm" onclick="calc('divide')">/</button>
+            <button class="btn btn-danger btn-sm" value="Clear" onclick="reset()">Clear</button>
+        </div>
 
-    <button value="Clear" onclick="reset()">Clear</button><br><br> 
-
-    Result <input type="text" id="result" />
+        <p class="mt-4 font-weight-bold">Result</p>
+        <input type="number" id="result" readonly class="form-control col-lg-4 col-md-3 col-12"/>
+    </div>
     
-    <script src="lib/http.js"></script>
+    <script src="lib/js/http.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
